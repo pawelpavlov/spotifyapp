@@ -3,7 +3,12 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Flurl;
 using Newtonsoft.Json;
-using Spotify.Client.Models;
+using SpotifyAPI.Web.Enums;
+using SpotifyAPI.Web.Models;
+using SpotifyAPI.Web;
+using SpotifyAPI.Web.Auth;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Spotify.Client
 {
@@ -11,43 +16,36 @@ namespace Spotify.Client
     {
         private const string ClientId = "996d0037680544c987287a9b0470fdbb";
         private const string ClientSecret = "5a3c92099a324b8f9e45d77e919fec13";
-        //private const string ClientId = "996d0037680544c987287a9b0470fdbb";
-        //private const string ClientSecret = "5a3c92099a324b8f9e45d77e919fec13";
-
         protected const string BaseUrl = "https://api.spotify.com/";
-        private HttpClient GetDefaultClient()
+
+        private SpotifyWebAPI spotify;
+
+        public SpotifyApiClient()
         {
-            var authHandler = new SpotifyAuthClientCredentialsHttpMessageHandler(
-                ClientId,
-                ClientSecret,
-                new HttpClientHandler());
-
-            var client = new HttpClient(authHandler)
+            var auth = new ClientCredentialsAuth()
             {
-                BaseAddress = new Uri(BaseUrl)
+                //Your client Id
+                ClientId = "996d0037680544c987287a9b0470fdbb",
+                ClientSecret = "5a3c92099a324b8f9e45d77e919fec13",
+                Scope = Scope.UserReadPrivate,
             };
+            //With this token object, we now can make calls
+            Token token = auth.DoAuth();
 
-            return client;
+            this.spotify = new SpotifyWebAPI()
+            {
+                TokenType = token.TokenType,
+                AccessToken = token.AccessToken,
+                UseAuth = true
+            };
         }
 
-        public async Task<SearchArtistResponse> SearchArtistsAsync(string artistName, int? limit = null, int? offset = null)
+        public SimpleTrack GetSomeSong()
         {
-            var client = GetDefaultClient();
-
-            var url = new Url("/v1/search");
-            url = url.SetQueryParam("q", artistName);
-            url = url.SetQueryParam("type", "artist");
-
-            if (limit != null)
-                url = url.SetQueryParam("limit", limit);
-
-            if (offset != null)
-                url = url.SetQueryParam("offset", offset);
-
-            var response = await client.GetStringAsync(url);
-
-            var artistResponse = JsonConvert.DeserializeObject<SearchArtistResponse>(response);
-            return artistResponse;
+            var genres = new List<string>() { "rock" };
+            var res = this.spotify.GetRecommendations(null, genres);
+            var track = res.Tracks.FirstOrDefault();
+            return track;
         }
     }
 }

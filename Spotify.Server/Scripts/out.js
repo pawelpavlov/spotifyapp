@@ -7,6 +7,11 @@ define("DataService", ["require", "exports"], function (require, exports) {
         DataService.get = function (url) {
             return fetch(url);
         };
+        DataService.GetSong = function () {
+            debugger;
+            var url = DataService.url + "/GetSong";
+            return DataService.get(url);
+        };
         DataService.url = "http://localhost:50406/api/spotify";
         return DataService;
     }());
@@ -15,7 +20,7 @@ define("DataService", ["require", "exports"], function (require, exports) {
 define("main", ["require", "exports", "DataService"], function (require, exports, DataService_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    DataService_1.DataService.get(DataService_1.DataService.url).then(function (x) { console.log(x); });
+    DataService_1.DataService.GetSong().then(function (x) { debugger; });
     $("#tinderslide").jTinder({
         onDislike: function (item) {
             $('#status').html('Dislike image ' + (item.index() + 1));

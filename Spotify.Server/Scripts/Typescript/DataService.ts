@@ -3,4 +3,10 @@
     public static get<T>(url: string): Promise<any> {
         return fetch(url);
     }
+
+    public static GetSong(): Promise<any> {
+        debugger;
+        var url = DataService.url + "/GetSong";
+        return DataService.get<any>(url);
+    }
 }

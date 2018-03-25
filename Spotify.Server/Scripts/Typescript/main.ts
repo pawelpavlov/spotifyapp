@@ -2,12 +2,15 @@
 /// <reference path="typings/jquery.d.ts" />
 
 import { DataService } from './DataService';
-DataService.get(DataService.url).then((x) => { console.log(x) })
+//DataService.get(DataService.url).then((x) => { console.log(x) })
+
+DataService.GetSong().then((x) => { debugger; });
+
 declare var $: any;
 
 /**
  * jTinder initialization
- */
+ */ 
 
 $("#tinderslide").jTinder({
     // dislike callback
@@ -33,4 +36,4 @@ $("#tinderslide").jTinder({
 $('.actions .like, .actions .dislike').click((e) => {
     e.preventDefault();
     $("#tinderslide").jTinder($(e.currentTarget).attr('class') );
-});
+}); 
