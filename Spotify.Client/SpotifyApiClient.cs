@@ -11,6 +11,8 @@ namespace Spotify.Client
     {
         private const string ClientId = "996d0037680544c987287a9b0470fdbb";
         private const string ClientSecret = "5a3c92099a324b8f9e45d77e919fec13";
+        //private const string ClientId = "996d0037680544c987287a9b0470fdbb";
+        //private const string ClientSecret = "5a3c92099a324b8f9e45d77e919fec13";
 
         protected const string BaseUrl = "https://api.spotify.com/";
         private HttpClient GetDefaultClient()

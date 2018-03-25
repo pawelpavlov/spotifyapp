@@ -54,6 +54,10 @@
       <Project>{cfd97a85-21be-403a-a25d-6f168312ab82}</Project>
       <Name>Spotify.Client</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SpotifyAPI\SpotifyAPI.csproj">
+      <Project>{ebbe35e2-7b91-4d7d-b8fc-3a0472f5119d}</Project>
+      <Name>SpotifyAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

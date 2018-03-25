@@ -132,7 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\SpotifyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,6 +148,8 @@
     <Content Include="Scripts\Libs\bootstrap.min.js" />
     <None Include="Scripts\Libs\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.js" />
+    <Content Include="Scripts\Libs\jquery.transform2d.js" />
+    <Content Include="Scripts\Libs\jtinder.js" />
     <Content Include="Scripts\Libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\Libs\require.js" />
     <Content Include="Web.config" />
@@ -168,7 +170,8 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\Typescript\DataService.ts" />
-    <TypeScriptCompile Include="Scripts\Typescript\test.ts" />
+    <TypeScriptCompile Include="Scripts\Typescript\main.ts" />
+    <TypeScriptCompile Include="Scripts\Typescript\Typings\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\Typescript\Typings\knockout.d.ts" />
   </ItemGroup>
   <ItemGroup>
