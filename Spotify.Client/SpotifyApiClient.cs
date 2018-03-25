@@ -40,12 +40,14 @@ namespace Spotify.Client
             };
         }
 
-        public SimpleTrack GetSomeSong()
+        public FullTrack GetSomeSong()
         {
             var genres = new List<string>() { "rock" };
             var res = this.spotify.GetRecommendations(null, genres);
             var track = res.Tracks.FirstOrDefault();
-            return track;
+
+            var fulltrack = this.spotify.GetTrack(track.Id);
+            return fulltrack;
         }
     }
 }

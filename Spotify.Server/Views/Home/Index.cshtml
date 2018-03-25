@@ -1,17 +1,12 @@
-﻿
-@*<iframe src="https://open.spotify.com/embed?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>*@
-
-@*<iframe src="https://embed.spotify.com/?uri=spotify:track:3IRU7QgydvLdrRxZGZa4pL&amp;theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>*@
-
-
-<div class="wrap">
+﻿<div class="wrap">
     <!-- start jtinder container -->
     <div id="tinderslide">
         <ul>
-            <li class="pane5">
+            <li class="pane5" id="card">
                 <div>
-                    <iframe src="https://embed.spotify.com/?uri=spotify:track:02HZgK5YSCALhTkEw2x1va&amp;theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-                    @*<iframe src="https://p.scdn.co/mp3-preview/c8ebba8ecf446eb20da29714356e8ca418ccadfc?cid=996d0037680544c987287a9b0470fdbb"></iframe>*@
+                    <iframe data-bind="attr: { src: widgetAudioUrl()} " style="display: none"></iframe>
+                    <iframe data-bind="attr: { src: widgetUrl()} " width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
                 </div>
                 <div class="like"></div>
                 <div class="dislike"></div>
@@ -29,7 +24,8 @@
 <div id="status"></div>
 
 <script>
-
-    require(["main"], function (main) {
+    require(["main", "ViewModel"], function (main, ViewModel) {
+        var vm = new ViewModel.ViewModel();
+        ko.applyBindings(vm);
     });
 </script>

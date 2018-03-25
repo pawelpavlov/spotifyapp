@@ -2,26 +2,20 @@
 /// <reference path="typings/jquery.d.ts" />
 
 import { DataService } from './DataService';
-//DataService.get(DataService.url).then((x) => { console.log(x) })
-
-DataService.GetSong().then((x) => { debugger; });
-
-declare var $: any;
 
 /**
  * jTinder initialization
  */ 
-
+declare var $: any;
 $("#tinderslide").jTinder({
     // dislike callback
     onDislike: function (item) {
-        // set the status text
-        $('#status').html('Dislike image ' + (item.index() + 1));
+        DataService.OnVoteNo();
     },
     // like callback
     onLike: function (item) {
         // set the status text
-        $('#status').html('Like image ' + (item.index() + 1));
+        DataService.OnVoteYes();
     },
     animationRevertSpeed: 200,
     animationSpeed: 400,

@@ -10,8 +10,7 @@ namespace Spotify.Server.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
+            ViewBag.Title = "Spotify App";
             return View();
         }
     }

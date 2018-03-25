@@ -8,10 +8,11 @@ namespace Spotify.Server
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery")
+            bundles.Add(new ScriptBundle("~/bundles/libs")
                 .Include("~/Scripts/Libs/jquery-{version}.js")
                 .Include("~/Scripts/Libs/jquery.transform2d.js")
                 .Include("~/Scripts/Libs/jtinder.js")
+                .Include("~/Scripts/Libs/knockout.js")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(

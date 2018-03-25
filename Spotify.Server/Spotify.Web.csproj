@@ -51,6 +51,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -69,9 +73,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -136,6 +137,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Song.cs" />
+    <Compile Include="Models\Vote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +152,7 @@
     <Content Include="Scripts\Libs\jquery-1.10.2.js" />
     <Content Include="Scripts\Libs\jquery.transform2d.js" />
     <Content Include="Scripts\Libs\jtinder.js" />
+    <Content Include="Scripts\Libs\knockout.js" />
     <Content Include="Scripts\Libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\Libs\require.js" />
     <Content Include="Web.config" />
@@ -170,9 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\Typescript\DataService.ts" />
+    <TypeScriptCompile Include="Scripts\Typescript\Interfaces\Song.ts" />
+    <TypeScriptCompile Include="Scripts\Typescript\Interfaces\Vote.ts" />
     <TypeScriptCompile Include="Scripts\Typescript\main.ts" />
     <TypeScriptCompile Include="Scripts\Typescript\Typings\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\Typescript\Typings\knockout.d.ts" />
+    <TypeScriptCompile Include="Scripts\Typescript\ViewModel.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
