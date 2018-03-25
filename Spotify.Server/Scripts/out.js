@@ -29,5 +29,9 @@ define("main", ["require", "exports", "DataService"], function (require, exports
         likeSelector: '.like',
         dislikeSelector: '.dislike'
     });
+    $('.actions .like, .actions .dislike').click(function (e) {
+        e.preventDefault();
+        $("#tinderslide").jTinder($(e.currentTarget).attr('class'));
+    });
 });
 //# sourceMappingURL=out.js.map

@@ -30,7 +30,7 @@ $("#tinderslide").jTinder({
 /**
  * Set button action to trigger jTinder like & dislike.
  */
-//$('.actions .like, .actions .dislike').click((e) => {
-//    e.preventDefault();
-//    $("#tinderslide").jTinder( $(this).attr('class') );
-//});
+$('.actions .like, .actions .dislike').click((e) => {
+    e.preventDefault();
+    $("#tinderslide").jTinder($(e.currentTarget).attr('class') );
+});

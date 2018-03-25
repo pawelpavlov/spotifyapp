@@ -9,6 +9,11 @@ namespace Spotify.Test
 {
     class Program
     {
+        static void FirstSong()
+        {
+
+        }
+
         static void Main(string[] args)
         {
             //var cl = new Spotify.ApiClient.SpotifyApiClient();
